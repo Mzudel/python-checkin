@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -x 
+#set -e
+
+
+read -p "Zadaj cele cislo " input 
+
+binary=""
+x=1
+
+while (( x <= input )); do
+	((x *= 2))
+done 
+((x /= 2 ))
+
+while (( x > 0 ));do
+  if (( input >= x )); then
+    binary+="1"
+    (( input -= x ))
+  else
+    binary+="0"
+  fi
+  (( x /= 2 )) 
+done
+
+echo "cislo v binarnej sustave $binary"
+
+
+

@@ -1,0 +1,4 @@
+echo -n "Pozivatel: $(whoami)"
+echo "Cas : $(date)"
+echo "Pociatocna cesta: $pociatocna_cesta"
+export VERZIA_STRUKTUROVANEHO_SKRIPTU="0.0.1"

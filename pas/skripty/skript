@@ -1,0 +1,13 @@
+vytvorte skript ktory 
+
+-vypise svoje meno (not hardcoded)
+ 
+-ako prvy argument vezme text a ulozi ho do premennej
+
+-odstrani medzeri z prveho argumentu
+
+-vytvori subor s rovnakym nazvom ako prvy argument 
+
+-vypise pocet znakov prveho argumentu
+
+-ulozi datum do vytvoreneho syboru 

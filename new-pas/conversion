@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+read -p "zadaj cislo: " cislo
+orig=$cislo
+dvojko=""
+hexik=""
+
+# najvacsia mocnina 2 <= cislo
+x=1
+while (( x <= cislo )); do
+  (( x *= 2 ))
+done
+(( x /= 2 ))
+
+# prevod na binarne
+while (( x > 0 )); do
+  if (( cislo >= x )); then
+    dvojko+="1"
+    (( cislo -= x ))
+  else
+    dvojko+="0"
+  fi
+  (( x /= 2 ))
+done
+
+pad=$(( (4 - (${#dvojko} % 4)) % 4 ))
+for (( i=0; i<pad; i++ )); do
+  dvojko="0$dvojko"
+done
+
+formatovane=""
+for (( i=0; i<${#dvojko}; i+=4 )); do
+  formatovane+="${dvojko:i:4} "
+done
+formatovane=${formatovane% }
+
+echo "binarne: $formatovane"
+
+# prevod na hex
+cislo=$orig
+declare -A dict=(["10"]="A" ["11"]="B" ["12"]="C" ["13"]="D" ["14"]="E" ["15"]="F")
+
+if (( cislo == 0 )); then
+  hexik="0"
+else
+  while (( cislo > 0 )); do
+    zvysok=$(( cislo % 16 ))
+    (( cislo /= 16 ))
+
+    if (( zvysok >= 10 )); then
+      digit=${dict[$zvysok]}
+    else
+      digit=$zvysok
+    fi
+
+    hexik="$digit$hexik"
+  done
+fi
+
+echo "hex: $hexik" 

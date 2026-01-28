@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+read -p "Zadaj vvysku stromu " vyska
+
+if ! [[ "$vyska" =~ ^[1-9][0-9]*$ ]]; then
+	echo "Zadaj cele kladne cislo"
+	exit 1
+fi
+
+for ((riadok=1;riadok<=$vyska; riadok++));do
+	hviezdy=$((2*riadok - 1))
+	medzery=$((vyska - riadok))
+	
+	printf "%*s" "$medzery" | tr ' ' '.'
+	printf "%*s\n" "$hviezdy" | tr ' ' '*'
+done
+printf "%*s|\n" "$(( vyska -1 ))" ""
+
+
+
+
+
+
+
+#
+#for ((i=0; i<=$vyska; i++)); do
+#  for ((j=0; j<=i; j++)); do
+#	  echo -n "*"
+#  done
+#  echo
+#done
+#
+#for ((i=0; i<=$vyska/2; i++)); do
+#	  
+#	echo -n "||"
+#done

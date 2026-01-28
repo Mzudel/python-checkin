@@ -1,0 +1,11 @@
+function calc_chars() {
+  input="${1:-N0NEx1st1ng_STR1NG}"
+  test "$input" == "N0NEx1st1ng_STR1NG" && {
+    echo "usage: $0 <string>"
+    echo "Exitting..."
+    return 1
+}
+  output="$(echo "$input" | tr -d '\n' | wc -m )"
+
+  echo "$output"
+}

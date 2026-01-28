@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#set -x
+
+premenna=6
+x=6
+y=10
+#$((premenna -= 1))
+#((premenna - 1))
+echo "$((premenna - 1))" 
+echo "$premenna" 
+#echo "$((premenna / x))"  
+#echo "$((premenna % y))" 
+
+while [ $premenna -lt 10 ] 
+  do
+  echo "idem"
+  ((premenna += 1))
+  done
